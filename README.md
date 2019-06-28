@@ -1,8 +1,8 @@
-> 项目地址：https://github.com/jrainlau/draw-something
+> 项目地址：https://github.com/mounter-xyy/nhwc
 ## 下载&运行
 
 ```
-git clone git@github.com:jrainlau/draw-something.git
+git clone git@github.com:/mounter-xyy/nhwc.git
 
 npm install
 
