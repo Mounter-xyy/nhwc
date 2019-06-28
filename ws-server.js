@@ -3,7 +3,6 @@ const WebSocketServer = require('ws').Server
   , wss = new WebSocketServer({port: 8090})
 
 let wordArr = ['Monkey', 'Dog', 'Bear', 'Flower', 'Girl']
-
 wss.on('connection', function(ws) {
     console.log('connected.')
 
@@ -17,7 +16,7 @@ wss.on('connection', function(ws) {
         if (message == keyWord) {
             console.log('correct')
             wss.clients.forEach((client) => {
-                client.send('答对了！！')
+                client.send('恭喜你答对了！！')
             })
         } else {
             console.log('wrong')

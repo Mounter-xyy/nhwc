@@ -16,9 +16,8 @@
             const cxt = canvas.getContext('2d')
             let moveToSwitch = 1
             ws.onmessage = (msg) => {
-              let pathObj = msg.data.split('.')
+              let pathObj = msg.data.split('.') 
               cxt.strokeStyle = "#000"
-              
               if (moveToSwitch && msg.data != 'stop' && msg.data != 'clear') {
                   cxt.beginPath()
                   cxt.moveTo(pathObj[0], pathObj[1])
@@ -29,10 +28,7 @@
                   moveToSwitch = 1
               } else if (moveToSwitch && msg.data == 'clear') {
                   cxt.clearRect(0, 0, 500, 500)
-              } else if (msg.data == '答对了！！') {
-                  alert('恭喜你答对了！！')
-              }
-
+              } 
               cxt.lineTo(pathObj[2], pathObj[3])
               cxt.stroke()
             }
@@ -42,6 +38,13 @@
                 submitBtn.onclick = () => {
                     let keyword = document.getElementById('answer').value
                     ws.send(keyword)
+                    ws.onmessage = (msg) => {
+                        if(msg.data == '恭喜你答对了！！'){
+                            alert('恭喜你答对了！！')
+                        }else{
+                            alert('对不起答错了！！')
+                        }   
+                    }   
                 }
             }
         }

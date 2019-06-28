@@ -83,6 +83,7 @@ export default {
         let btn = document.getElementById('btn')
         ws.onopen = () => {
             draw.init(ws, btn)
+            draw.drawEnd()
         }
         ws.onmessage = (msg) => {
             msg.data.split(':')[0] == 'keyword' ?
